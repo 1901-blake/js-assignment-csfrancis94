@@ -3,5 +3,8 @@ Define function: isEven(someNum)
 Return true if even, false if odd.
 Do not use % operator. */
 function isEven(someNum) {
-  
+  return !!(-((someNum % 2) - 1));
 }
+
+console.log(isEven(8));
+console.log(isEven(1));
