@@ -21,5 +21,61 @@ Example for printShape("Diamond", 5, "*");
   * 
 */
 function printShape(shape, height, character) {
-  
+  switch(shape)
+  {
+  case "Square":
+  for (let i = 0; i < height; i++)
+  {
+	let thisStr = "";
+		for (let j = 0; j < height; j++)
+			thisStr += character;
+	console.log(thisStr);
+  }
+  break;
+  case "Diamond":
+    for (let i = 0; i < height; i++)
+	{
+		let thisStr = "";
+		if (i < ~~(height/2))
+		for (let j = 0; j < (2*i)+1; j++)
+			thisStr += character;
+		if (i >= ~~(height/2))
+		for (let j = 0; j < (2*(height-i-1))+1; j++)
+			thisStr += character;
+		//append spaces
+		if (i < ~~(height/2))
+		{
+		for (let j = 0; j < ~~(height-((2*i)+1))/2; j++)
+			thisStr += " ";
+		//append spaces
+		for (let j = 0; j < ~~(height-((2*i)+1))/2; j++)
+			thisStr =  " " + thisStr ;
+		}
+		//append spaces
+		if (i >= ~~(height/2))
+		{
+		for (let j = 0; j < ~~(height-(2*(height-i-1))-1)/2; j++)
+			thisStr += " ";
+		//append spaces
+		for (let j = 0; j < ~~(height-(2*(height-i-1))-1)/2; j++)
+			thisStr =  " " + thisStr ;
+		}
+		
+		console.log(thisStr);
+	}
+			
+  break;
+  case "Triangle":
+for (let i = 0; i <= height; i++)
+  {
+	let thisStr = "";
+		for (let j = 0; j < i; j++)
+			thisStr += character;
+	console.log(thisStr);
+  }
+  break;
+  }
 }
+printShape("Square", 3, "%");
+printShape("Diamond", 9, "*");
+printShape("Triangle", 3, "$");
